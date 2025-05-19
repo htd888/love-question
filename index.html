@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恋爱询问</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s;
+        }
+        img {
+            max-width: 150px;
+            max-height: 150px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .yes-btn {
+            background-color: #FF4D6D;
+            color: white;
+        }
+        .yes-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(255,77,109,0.3);
+        }
+        .no-btn {
+            background-color: #4CC9F0;
+            color: white;
+        }
+        .no-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(76,201,240,0.3);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <img src="1.gif" alt="可爱图标">
+    <p class="question">馨馨子你可以成为我的恋人吗？</p>
+    <div class="buttons">
+        <button class="yes-btn" onclick="yesClicked()">可以</button>
+        <button class="no-btn" onclick="noClicked()">不要</button>
+    </div>
+
+    <script>
+        function yesClicked() {
+            alert("太开心啦，你现在是我的恋人啦！");
+            window.close();
+        }
+
+        function noClicked() {
+            // 随机选择一条拒绝话术
+            const replies = [
+                "哎呀，再给我三天时间考虑嘛！第一天想你的优点，第二天想我的缺点，第三天...就答应你！",
+                "我的心还在调试模式，恋爱系统版本1.0还没开发完成呢~",
+                "等等！我还没准备好坠入爱河，先让我和丘比特商量一下箭的角度吧~",
+                "拒绝是为了更好的相遇，毕竟直接答应的话，故事就不浪漫了嘛！",
+                "恋爱的小船要慢慢划，先从「朋友」码头出发，再驶向「恋人」海湾吧~",
+                "其实我对你也有好感，但爱情像一株植物，需要时间慢慢生长。我们先多了解彼此好吗？",
+                "如果我说「不要」，你会用什么方式让我改变主意呢？",
+                "我想再享受一下单身的自由，不过你可以每天给我带一杯奶茶，说不定我会改变主意哦~",
+                "我现在满脑子都是工作/学习，等我变成更好的自己，你还喜欢我的话...",
+                "要不我们先从每天互道晚安开始？等攒够999条晚安，我就答应你！"
+            ];
+
+            const randomReply = replies[Math.floor(Math.random() * replies.length)];
+            alert(randomReply);
+
+            // 添加点击后的小动画效果
+            document.body.style.backgroundColor = "#ffebee";
+            setTimeout(() => {
+                document.body.style.backgroundColor = "#fce4ec";
+            }, 300);
+        }
+    </script>
+</body>
+</html>
